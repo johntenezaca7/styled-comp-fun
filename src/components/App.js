@@ -1,80 +1,22 @@
-import React, { Component } from "react";
-import styled, { ThemeProvider } from "styled-components";
+import React from "react";
+import { ThemeProvider } from "styled-components";
 
-// Styled Components
-import {
-  GlobalStyle,
-  Section,
-  Theme,
-  Title,
-  Button,
-  DivWrapper
-} from "./Styled/Index";
-
-// Components
-import TabSwitcher from "./TabSwitch/TabSwitcher";
-import { Tab, TabPanel } from "./TabSwitch/TabSwitcherContext";
+import TabSwitcherView from "./TabSwitch/TabSwitcherView";
 import Search from "./SearchParam/SearchParams";
+import { GlobalStyle, Section, Theme, Title } from "./Styled";
 
-import Pet from "./Pet/Pet";
-
-import appState from "./utils/appDummyState";
-
-const BtnWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  max-width: 20rem;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-`;
-
-
-DivWrapper.defaultProps = {
-  theme: {
-    main: "palevioletred"
-  }
-}
-
-class App extends Component {
-  render() {
-    return (
-      <Section>
-        <GlobalStyle />
+const App = (props) => {
+  const items = props;
+  return (
+    <Section>
+      <GlobalStyle />
+      <ThemeProvider theme={Theme}>
         <Title id="something-important">Tab Switcher</Title>
         <Search />
-        <TabSwitcher>
-          <BtnWrapper>
-            { 
-              this.props.items !== null ? 
-                this.props.items.map(item => {
-                  return (
-                    <Tab id={item.id} key={item.id}>
-                      <Button>{item.id.toLocaleUpperCase()}</Button>
-                    </Tab>
-                  );
-                }) : null
-            }
-          </BtnWrapper>
-          <DivWrapper>
-            {
-              this.props.items !== null ?
-                this.props.items.map(item => {
-                  return (
-                    <TabPanel whenActive={item.id} key={item.id}>
-                      <Pet
-                        name={item.details.name}
-                        animal={item.details.animal}
-                        breed={item.details.breed}
-                      />
-                    </TabPanel>
-                  );
-                }) : null
-            }
-          </DivWrapper>
-        </TabSwitcher>
-      </Section>
-    );
-  }
+        <TabSwitcherView data={ items }/>
+      </ThemeProvider>
+    </Section>
+  );
 };
 
 export default App;

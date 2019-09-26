@@ -1,10 +1,10 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import "jest-styled-components";
+import 'jest-styled-components';
 
-import { Button } from "../Index";
+import { Title } from "../Index";
 
 test("Button renders correctly.", () => {
-  const element = renderer.create(<Button />).toJSON();
+  const element = renderer.create(<Title />).toJSON();
   expect(element).toMatchSnapshot();
 });

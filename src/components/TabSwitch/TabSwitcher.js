@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Provider } from "./TabSwitcherContext";
 
-class TabSwitcher extends Component {
+export default class TabSwitcher extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      activeTabId: "c"
+      activeTabId: "a"
     };
 
     this.changeTab = this.changeTab.bind(this);
@@ -30,6 +30,4 @@ class TabSwitcher extends Component {
       </Provider>
     );
   }
-}
-
-export { TabSwitcher as default };
+};

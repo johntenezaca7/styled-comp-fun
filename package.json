@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel src/index/index.html",
-    "test-styles": "jest src/components/styled/__tests__",
-    "test-comps": "jest src/components/__tests__"
+    "styled-comp-tests": "jest src/components/styled/__tests__",
+    "react-comp-tests": "jest src/components/__tests__"
   },
   "keywords": [],
   "author": "",

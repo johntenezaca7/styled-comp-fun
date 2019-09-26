@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, DivWrapper  } from "../Styled/Index";
+import { Button, DivWrapper } from "../Styled";
 
 const SearchParams = () => {
   const location = "Seattle, WA";
