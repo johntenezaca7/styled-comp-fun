@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Section component renders correctly. 1`] = `
+.c0 {
+  max-width: 99rem;
+  padding: 2rem;
+  background-color: #ffffff;
+  height: 100vh;
+}
+
+<section
+  className="c0"
+/>
+`;
