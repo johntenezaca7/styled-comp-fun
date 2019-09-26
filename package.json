@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel src/index/index.html",
-    "styled-comp-tests": "jest src/components/styled/__tests__",
+    "s-c-tests": "jest src/components/styled/__tests__",
+    "update-s-c-test": "jest src/components/styled/__tests__ -- -u",
     "react-comp-tests": "jest src/components/__tests__"
   },
   "keywords": [],

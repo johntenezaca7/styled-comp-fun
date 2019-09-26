@@ -1,19 +1,20 @@
-import React from "react";
-import styled from  "styled-components";
+import styled from "styled-components";
 
 export const Button = styled.button`
   font-size: 1em;
-  padding: 0.25em 1em;
   border-radius: 3px;
+  cursor: pointer;
   color: ${props => props.theme.main};
   border: 2px solid ${props => props.theme.main};
-  cursor: pointer;
+  padding: ${props => props.padding };
+  margin: ${props => props.margin };
 `;
 
-// We are passing a default theme for Buttons that arent wrapped in the ThemeProvider
 Button.defaultProps = {
+  padding: "0.25em 1em",
+  margin: "0",
   theme: {
     main: "#70A288"
-  }
-}
+  },
+};
 

@@ -1,16 +1,16 @@
 import React from "react";
 
 import TabSwitcher from "./TabSwitcher";
-import { Tab, TabPanel } from "./TabSwitcherContext";
 import Pet from "../Pet/Pet";
-import { Button } from "../Styled";
+import { Tab, TabPanel } from "./TabSwitcherContext";
+import { Button, FlexContainer } from "../Styled";
 
 const TabSwitcherView = (props) => {
   const { items } = props.data;
   return (
     <>
       <TabSwitcher>
-        <>
+        <FlexContainer width="25%" jContent="space-between" margin="2rem 0" padding="0">
           { 
             items !== null ? 
               items.map(item => {
@@ -22,7 +22,7 @@ const TabSwitcherView = (props) => {
                 );
               }) : null
           }
-        </>
+        </FlexContainer>
         <>
           {
             items !== null ?
