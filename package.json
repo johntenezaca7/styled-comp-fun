@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel src/index.html",
+    "dev": "parcel src/index/index.html",
     "test-styles": "jest src/components/styled/__tests__",
     "test-comps": "jest src/components/__tests__"
   },

@@ -1,22 +1,24 @@
 import React, { Component } from "react";
-import styled, { ThemeProvider  } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 
 // Styled Components
-import { 
-  GlobalStyle, 
+import {
+  GlobalStyle,
   Section,
   Theme,
-  Title, 
+  Title,
   Button,
   DivWrapper
-} from "./styled/Index";
+} from "./Styled/Index";
 
 // Components
-import TabSwitcher from "./TabSwitcher";
-import { Tab, TabPanel } from "./TabSwitcherContext";
-import Search from "./SearchParams";
+import TabSwitcher from "./TabSwitch/TabSwitcher";
+import { Tab, TabPanel } from "./TabSwitch/TabSwitcherContext";
+import Search from "./SearchParam/SearchParams";
 
-import Pet from "./Pet";
+import Pet from "./Pet/Pet";
+
+import appState from "./utils/appDummyState";
 
 const BtnWrapper = styled.div`
   display: flex;
@@ -34,75 +36,40 @@ DivWrapper.defaultProps = {
 }
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      items: [
-        {
-          id: 'a',
-          details: {
-            name: "Poo",
-            animal: "dog",
-            breed: "poodle"
-          }
-        },
-        {
-          id: 'b',
-          details: {
-            name: "Yeet",
-            animal: "Cat",
-            breed: "Street"
-          }
-        },
-        {
-          id: 'c',
-          details: {
-            name: "Skoot",
-            animal: "dog",
-            breed: "poodle"
-          }
-        },
-        {
-          id: 'd',
-          details: {
-            name: "Lip",
-            animal: "dog",
-            breed: "poodle"
-          }
-        },
-    ]
-    }
-  }
-
   render() {
     return (
       <Section>
-        <GlobalStyle />  
+        <GlobalStyle />
         <Title id="something-important">Tab Switcher</Title>
         <Search />
         <TabSwitcher>
           <BtnWrapper>
-            {this.state.items.map(item => {
-              return (
-                <Tab id={item.id} key={item.id}>
-                  <Button>{ item.id.toLocaleUpperCase() }</Button>
-                </Tab>
-              );
-            })}
+            { 
+              this.props.items !== null ? 
+                this.props.items.map(item => {
+                  return (
+                    <Tab id={item.id} key={item.id}>
+                      <Button>{item.id.toLocaleUpperCase()}</Button>
+                    </Tab>
+                  );
+                }) : null
+            }
           </BtnWrapper>
           <DivWrapper>
-            {this.state.items.map(item => {
-              return (
-                <TabPanel whenActive={item.id} key={item.id}>
-                  <Pet 
-                    name={item.details.name} 
-                    animal={item.details.animal} 
-                    breed={item.details.breed}
-                  />
-                </TabPanel>
-              );
-            })}
+            {
+              this.props.items !== null ?
+                this.props.items.map(item => {
+                  return (
+                    <TabPanel whenActive={item.id} key={item.id}>
+                      <Pet
+                        name={item.details.name}
+                        animal={item.details.animal}
+                        breed={item.details.breed}
+                      />
+                    </TabPanel>
+                  );
+                }) : null
+            }
           </DivWrapper>
         </TabSwitcher>
       </Section>

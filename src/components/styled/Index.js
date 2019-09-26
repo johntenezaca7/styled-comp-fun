@@ -1,9 +1,9 @@
 import React from "react";
 import styled, { createGlobalStyle  } from "styled-components";
 
-import { Button } from "./Button";
-import { Title } from "./Title";
-import { Section } from "./Section";
+import { Button } from "./Elements/Button";
+import { Title } from "./Elements/Title";
+import { Section } from "./Elements/Section";
 
 const Theme = {
   main: "mediumseagreen"
