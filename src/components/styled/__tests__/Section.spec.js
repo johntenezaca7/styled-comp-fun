@@ -8,3 +8,7 @@ test("Section component renders correctly.", function() {
   const element = renderer.create(<Section />).toJSON();
   expect(element).toMatchSnapshot();
 });
+
+test("Default props are passed", () => {
+
+});
